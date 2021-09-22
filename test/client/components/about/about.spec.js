@@ -2,8 +2,8 @@ import Chance from 'chance';
 import React from 'react';
 import {cleanup, render} from '@testing-library/react';
 
-import About from '../../../src/client/components/about';
-import {getYearsActive} from '../../../src/client/utils/about-me-helpers';
+import About from '../../../../src/client/components/about/about';
+import {getYearsActive} from '../../../../src/client/utils/about-me-helpers';
 
 const chance = new Chance();
 

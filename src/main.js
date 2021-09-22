@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
 import Home from './client/components/home';
-import About from './client/components/about';
+import About from './client/components/about/about';
 import Contact from './client/components/contact';
 
 const Main = () => (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {getYearsActive} from '../utils/about-me-helpers';
+import {getYearsActive} from '../../utils/about-me-helpers';
 
 const About = () => (
     <div className="about">
