@@ -4,7 +4,9 @@ import {cleanup, render} from '@testing-library/react';
 import Contact from '../../../src/client/components/contact';
 
 describe('contact page', () => {
-    let component, getByText, queryByTestId;
+    let component,
+        getByText,
+        queryByTestId;
 
     beforeEach(() => {
         component = render(<Contact />);
@@ -23,8 +25,8 @@ describe('contact page', () => {
         expect(title).toBeInTheDocument();
     });
 
-    test('should render intro paragraph correctly', async () => {
-        const paragraph = queryByTestId("intro-paragraph");
+    test('should render intro paragraph correctly', () => {
+        const paragraph = queryByTestId('intro-paragraph');
 
         expect(paragraph).toBeInTheDocument();
     });

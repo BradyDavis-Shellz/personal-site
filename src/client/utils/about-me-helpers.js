@@ -1,6 +1,5 @@
-import moment from 'moment';
+import {differenceInCalendarYears} from 'date-fns';
 
-export const getYearsActive = () => {
-    var start = moment([2015, 9]);
-    return start.diff(Date.now());
-};
+const startDate = new Date(2015, 9);
+
+export const getYearsActive = () => differenceInCalendarYears(startDate, Date.now());

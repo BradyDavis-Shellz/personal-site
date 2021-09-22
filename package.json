@@ -6,8 +6,8 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "date-fns": "^2.24.0",
     "express": "^4.17.1",
-    "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^5.2.1",
@@ -16,17 +16,23 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "lint": "eslint . --ext .js --ext .json",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --env=jsdom",
+    "test": "yarn lint && jest --env=jsdom",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:5000",
   "eslintConfig": {
+    "env": {
+      "jest": true
+    },
     "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+      "get-off-my-lawn"
+    ],
+    "rules" : {
+      "node/no-unpublished-import": "off"
+    }
   },
   "browserslist": {
     "production": [
@@ -42,6 +48,8 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
-    "chance": "^1.1.8"
+    "chance": "^1.1.8",
+    "eslint": "^7.32.0",
+    "eslint-config-get-off-my-lawn": "^6.0.3"
   }
 }
