@@ -1,7 +1,8 @@
 import React from 'react';
-import {cleanup, render} from '@testing-library/react';
+import {cleanup, render, fireEvent} from '@testing-library/react';
 
 import Contact from '../../../src/client/components/contact';
+import {BrowserRouter} from 'react-router-dom';
 
 describe('contact page', () => {
     let component,
@@ -9,10 +10,16 @@ describe('contact page', () => {
         queryByTestId;
 
     beforeEach(() => {
-        component = render(<Contact />);
+        component = render(
+            <BrowserRouter>
+                <Contact />
+            </BrowserRouter>
+        );
 
         queryByTestId = component.queryByTestId;
         getByText = component.getByText;
+
+        window.open = jest.fn();
     });
 
     afterEach(() => {
@@ -29,5 +36,16 @@ describe('contact page', () => {
         const paragraph = queryByTestId('intro-paragraph');
 
         expect(paragraph).toBeInTheDocument();
+    });
+
+    describe('email link', () => {
+        test('should set window location on click', () => {
+            const email = queryByTestId('email-link');
+
+            fireEvent.click(email);
+
+            expect(window.open).toHaveBeenCalledTimes(1);
+            expect(window.open).toHaveBeenCalledWith('mailto:bradydavis.ver.2.0@gmail.com');
+        });
     });
 });
