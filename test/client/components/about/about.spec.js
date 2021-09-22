@@ -7,7 +7,7 @@ import {getYearsActive} from '../../../../src/client/utils/about-me-helpers';
 
 const chance = new Chance();
 
-jest.mock('../../../src/client/utils/about-me-helpers');
+jest.mock('../../../../src/client/utils/about-me-helpers');
 
 describe('about page', () => {
     let component,

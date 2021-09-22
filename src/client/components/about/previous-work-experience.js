@@ -1,4 +1,6 @@
-export const previousWorkExperience = [
+import React from 'react';
+
+const previousWorkExperienceList = [
     {
         dates: 'Feb 2018 - Present',
         name: 'Source Allies',
@@ -27,9 +29,41 @@ export const previousWorkExperience = [
         name: 'Telligen',
         position: 'Software Developer',
         responsibilities: [
-            'Developed in-house .NET Windows Forms applications for use in processing MediCare claims',
+            'Developed in-house .NET Windows Forms applications for use in processing MediCare claims'
         ],
         url: 'https://www.telligen.com/'
     }
 ];
 
+/* eslint-disable react/no-array-index-key */
+const PreviousWorkExperience = () => (
+    <div>
+        {previousWorkExperienceList.map((item, itemIndex) =>
+            <div
+                key={`item-${itemIndex}`}
+            >
+                <h2>
+                    {item.name}
+                </h2>
+                <div>
+                    <strong>{`From: ${item.dates}`}</strong>
+                </div>
+                <div>
+                    <strong>{`Position: ${item.position}`}</strong>
+                </div>
+                <ul>
+                    {item.responsibilities.map((listItem, listIndex) =>
+                        <li
+                            key={`list-${itemIndex}-${listIndex}`}
+                        >
+                            {listItem}
+                        </li>
+                    )}
+                </ul>
+            </div>
+        )}
+    </div>
+);
+/* eslint-enable react/no-array-index-key */
+
+export {PreviousWorkExperience, previousWorkExperienceList};
