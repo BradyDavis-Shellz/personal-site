@@ -1,4 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const ExperienceItem = styled.div`
+    margin-bottom: 12px;
+`;
+
+const CompanyName = styled.h2`
+    margin-bottom: 8px;
+`;
+
+const SubHeading = styled.div`
+    color: SlateGray;
+`;
+
+const ResponsibilitiesList = styled.ul`
+    margin-top: 12px;
+    margin-left: 20px
+`;
 
 const previousWorkExperienceList = [
     {
@@ -39,19 +57,19 @@ const previousWorkExperienceList = [
 const PreviousWorkExperience = () => (
     <div>
         {previousWorkExperienceList.map((item, itemIndex) =>
-            <div
+            <ExperienceItem
                 key={`item-${itemIndex}`}
             >
-                <h2>
+                <CompanyName>
                     {item.name}
-                </h2>
-                <div>
+                </CompanyName>
+                <SubHeading>
                     <strong>{`From: ${item.dates}`}</strong>
-                </div>
-                <div>
+                </SubHeading>
+                <SubHeading>
                     <strong>{`Position: ${item.position}`}</strong>
-                </div>
-                <ul>
+                </SubHeading>
+                <ResponsibilitiesList>
                     {item.responsibilities.map((listItem, listIndex) =>
                         <li
                             key={`list-${itemIndex}-${listIndex}`}
@@ -59,8 +77,8 @@ const PreviousWorkExperience = () => (
                             {listItem}
                         </li>
                     )}
-                </ul>
-            </div>
+                </ResponsibilitiesList>
+            </ExperienceItem>
         )}
     </div>
 );
