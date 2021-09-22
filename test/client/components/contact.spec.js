@@ -1,8 +1,8 @@
 import React from 'react';
 import {cleanup, render, fireEvent} from '@testing-library/react';
+import {BrowserRouter} from 'react-router-dom';
 
 import Contact from '../../../src/client/components/contact';
-import {BrowserRouter} from 'react-router-dom';
 
 describe('contact page', () => {
     let component,
