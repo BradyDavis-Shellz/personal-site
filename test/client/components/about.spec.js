@@ -10,7 +10,10 @@ const chance = new Chance();
 jest.mock('../../../src/client/utils/about-me-helpers');
 
 describe('about page', () => {
-    let component, getByText, queryByTestId, expectedYearDiff;
+    let component,
+        getByText,
+        queryByTestId,
+        expectedYearDiff;
 
     beforeEach(() => {
         expectedYearDiff = chance.natural();
@@ -33,7 +36,7 @@ describe('about page', () => {
 
         expect(title).toBeInTheDocument();
     });
-    
+
     test('should render intro paragraph correctly', () => {
         const paragraph = queryByTestId('intro');
 
@@ -41,6 +44,6 @@ describe('about page', () => {
     });
 
     test('should call to getYearsActive', () => {
-       expect(getYearsActive).toHaveBeenCalledTimes(1);
+        expect(getYearsActive).toHaveBeenCalledTimes(1);
     });
 });

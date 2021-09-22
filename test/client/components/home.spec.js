@@ -4,7 +4,8 @@ import {cleanup, render} from '@testing-library/react';
 import Home from '../../../src/client/components/home';
 
 describe('home page', () => {
-    let component, getByText;
+    let component,
+        getByText;
 
     beforeEach(() => {
         component = render(<Home />);
@@ -22,8 +23,8 @@ describe('home page', () => {
         expect(title).toBeInTheDocument();
     });
 
-    test('should render intro paragraph correctly', async () => {
-        const paragraph = getByText('Feel free to browse around and learn more about me.')
+    test('should render intro paragraph correctly', () => {
+        const paragraph = getByText('Feel free to browse around and learn more about me.');
 
         expect(paragraph).toBeInTheDocument();
     });
