@@ -1,39 +1,61 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledNavList = styled.ul`
+    list-style: none;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+`;
+
+const StyledNavListItem = styled.li`
+    padding: 20px;
+`;
+
+const StyledNavLink = styled(NavLink)`
+    text-decoration: none;
+    color: black;
+    font-family: "Trebuchet MS";
+`;
+
+const activeNavStyle = {
+    color: 'maroon'
+};
 
 const activeClassName = 'current';
 
 const Navigation = () => (
     <nav>
-        <ul>
-            <li>
-                <NavLink
-                    activeClassName={activeClassName}
+        <StyledNavList>
+            <StyledNavListItem>
+                <StyledNavLink
+                    activeStyle={activeNavStyle}
                     exact
                     to="/"
                 >
                     {'Home'}
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                    activeClassName={activeClassName}
+                </StyledNavLink>
+            </StyledNavListItem>
+            <StyledNavListItem>
+                <StyledNavLink
+                    activeStyle={activeNavStyle}
                     exact
                     to="/about"
                 >
                     {'About'}
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                    activeClassName={activeClassName}
+                </StyledNavLink>
+            </StyledNavListItem>
+            <StyledNavListItem>
+                <StyledNavLink
+                    activeStyle={activeNavStyle}
                     exact
                     to="/contact"
                 >
                     {'Contact'}
-                </NavLink>
-            </li>
-        </ul>
+                </StyledNavLink>
+            </StyledNavListItem>
+        </StyledNavList>
     </nav>
 );
 
